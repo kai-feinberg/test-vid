@@ -1,9 +1,10 @@
-import {AbsoluteFill} from 'remotion';
-import {Logo} from './Logo';
-import {Subtitle} from './Subtitle';
-import {Title} from './Title';
-import {z} from 'zod';
-import {zColor} from '@remotion/zod-types';
+import { AbsoluteFill, Sequence, Series } from 'remotion';
+import { z } from 'zod';
+import { zColor } from '@remotion/zod-types';
+import { Animated, Fade, Move, Scale } from 'remotion-animated';
+
+import { Lottie } from '@remotion/lottie';
+import lottie1 from '../public/lottie1.json';
 
 export const myCompSchema = z.object({
 	titleText: z.string(),
@@ -16,13 +17,24 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 	titleColor: propTwo,
 	logoColor: propThree,
 }) => {
+
 	return (
-		<AbsoluteFill className="bg-gray-100 items-center justify-center">
-			<div className="m-10" />
-			<Logo logoColor={propThree} />
-			<div className="m-3" />
-			<Title titleText={propOne} titleColor={propTwo} />
-			<Subtitle />
-		</AbsoluteFill>
+		<div className='bg-slate-100 h-full w-full flex flex-col justify-center items-center'>
+			<div>
+				<Animated animations={[
+					Scale({ by: 10, initial: 1, duration: 90 }),
+					Move({ y: -100, start: 100 }),
+				]}>
+					<p className='text-gray-700 font-bold'>Hello</p>
+				</Animated>
+			</div>
+			<div>
+				<Animated in={150} delay={150} animations={[
+					Fade({ to: 1, initial: 0, duration: 30 }),
+				]}>
+					<p className='text-gray-700 font-bold text-3xl'>{propOne}</p>
+				</Animated>
+			</div>
+		</div>
 	);
 };

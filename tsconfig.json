@@ -10,6 +10,11 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
 		"noUnusedLocals": true
+	},
+	"paths": {
+		"~/*": ["src/*"],
+		"@*": ["/*"]
 	}
 }
