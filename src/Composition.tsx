@@ -3,8 +3,6 @@ import { z } from 'zod';
 import { zColor } from '@remotion/zod-types';
 import { Animated, Fade, Move, Scale } from 'remotion-animated';
 
-import { Lottie } from '@remotion/lottie';
-import lottie1 from '../public/lottie1.json';
 
 export const myCompSchema = z.object({
 	titleText: z.string(),

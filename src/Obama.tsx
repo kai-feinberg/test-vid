@@ -24,7 +24,7 @@ export const Obama: React.FC<z.infer<typeof myCompSchema>> =
                     Scale({ by: 10, initial: 1, duration: 180 }),
                     Move({ y: -1000, start: 100 }),
                 ]}>
-                <Img src={staticFile("download.jpeg")} style={{ width: '100%', height: 'auto' }} />
+                <Img src={staticFile("download.jpeg")} style={{ width: '100%', height: '100%' }} />
                 </Animated>
             </AbsoluteFill >
         );
